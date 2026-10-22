@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sinh viên</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f3f4f6;
+        margin: 0;
+        padding: 30px;
+        color: #1f2937;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #00000010;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2563eb;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      input,
+      select,
+      button {
+        padding: 11px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 15px;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        color: white;
+        background: #2563eb;
+      }
+
+      button:hover {
+        opacity: 0.85;
+      }
+
+      .add-button {
+        grid-column: 1 / -1;
+      }
+
+      .delete-button {
+        background: #dc2626;
+        padding: 8px 12px;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+      }
+
+      th,
+      td {
+        padding: 13px;
+        border: 1px solid #e5e7eb;
+        text-align: left;
+      }
+
+      th {
+        background: #2563eb;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background: #f9fafb;
+      }
+
+      #message {
+        color: #dc2626;
+        margin-bottom: 15px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        form {
+          grid-template-columns: 1fr;
+        }
+
+        .add-button {
+          grid-column: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quản lý danh sách sinh viên</h1>
+
+      <form id="studentForm">
+        <input type="text" id="name" placeholder="Họ và tên" required />
+
+        <input type="date" id="birthday" required />
+
+        <select id="gender" required>
+          <option value="">-- Chọn giới tính --</option>
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+          <option value="Khác">Khác</option>
+        </select>
+
+        <button type="submit" class="add-button">Thêm sinh viên</button>
+      </form>
+
+      <p id="message" role="alert"></p>
+
+      <h3 id="studentCount">Danh sách sinh viên (0)</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Họ và tên</th>
+              <th>Ngày sinh</th>
+              <th>Giới tính</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+
+          <tbody id="studentList"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "lab8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "lint": "eslint src/ --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "html-webpack-plugin": "^5.6.8",
+    "webpack": "^5.112.0",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.1.0"
+  }
+}
